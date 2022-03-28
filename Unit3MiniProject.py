@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from tabulate import tabulate
 # I chose problem 6.25, Manning Equation
 
+
+# returns depth as a function of height according to Manning Equation
 def manning(H, S=.0002, B=20, n=.03):
     num = math.sqrt(S) * ((B*H)**(5/3))
     denom = n* ((B + 2*H)**(2/3))
@@ -16,11 +18,12 @@ def manning(H, S=.0002, B=20, n=.03):
 # plt.xlabel("Value of H")
 # plt.show()
 
+# function to get approximate error
 def approx_error(x_i, x_f):
     return abs((x_f-x_i)/x_f)
 
+# implementation of bisection method
 def bisection(f, x_l, x_u, tol):
-
     oldX = 0
     x = (x_l+x_u)/2
     val = f(x)
@@ -43,7 +46,7 @@ def bisection(f, x_l, x_u, tol):
 
     return approximations, errors
 
-
+# implementation of modified secant method
 def modified_secant(f, tol, delta, x_0):
     print("Modified Secant Method")
     x_f = x_0 - delta * x_0 * f(x_0) / (f(x_0 + delta*x_0) - f(x_0))
