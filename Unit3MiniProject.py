@@ -11,12 +11,14 @@ def manning(H, S=.0002, B=20, n=.03):
     denom = n* ((B + 2*H)**(2/3))
     return num/denom
 
-# xData = np.linspace(0, 2, 1000)
-# yData = [manning(x)-5 for x in xData]
-# plt.plot(xData, yData)
-# plt.title("Q-5 plotted against H according to Manning Equation")
-# plt.xlabel("Value of H")
-# plt.show()
+xData = np.linspace(0, 2, 1000)
+yData = [manning(x) for x in xData]
+line5 = [5 for x in xData]
+plt.plot(xData, yData)
+plt.plot(xData, line5)
+plt.title("Q plotted against H according to Manning Equation")
+plt.xlabel("Value of H")
+plt.show()
 
 # function to get approximate error
 def approx_error(x_i, x_f):
